@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OnceU — Ask. Connect. Learn. Pass it on.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ============ SPLASH SCREEN ============ -->
+<div id="splash" class="splash">
+  <img class="splash__logo" src="assets/logo.png" alt="OnceU logo" />
+  <p class="splash__tagline">"Every student was once a junior, and every senior remembers being lost."</p>
+  <div class="splash__dots" aria-label="Loading">
+    <span></span><span></span><span></span>
+  </div>
+</div>
+
+<!-- ============ MAIN CONTENT (hidden until splash finishes) ============ -->
+<main id="mainContent" class="auth-page">
+
+  <!-- LEFT: brand panel -->
+  <section class="auth-brand">
+    <div class="auth-brand__orb auth-brand__orb--a" aria-hidden="true"></div>
+    <div class="auth-brand__orb auth-brand__orb--b" aria-hidden="true"></div>
+
+    <div class="auth-brand__content">
+      <img class="auth-brand__logo" src="assets/logo.png" alt="OnceU logo" />
+
+      <h1 class="auth-brand__headline">Ask. Connect.<br>Learn. Pass it on.</h1>
+
+      <p class="auth-brand__quote">"Every student was once a junior, and every senior remembers being lost."</p>
+
+      <span class="auth-brand__badge">Built for IGDTUW students</span>
+
+      <div class="auth-brand__loop">
+        <div class="loop-item">
+          <div class="loop-item__marker">1</div>
+          <div class="loop-item__text">
+            <strong>Ask</strong>
+            <span>Find a senior who's already been where you are</span>
+          </div>
+        </div>
+        <div class="loop-item__line"></div>
+
+        <div class="loop-item">
+          <div class="loop-item__marker">2</div>
+          <div class="loop-item__text">
+            <strong>Connect</strong>
+            <span>Send a request, chat once they accept</span>
+          </div>
+        </div>
+        <div class="loop-item__line"></div>
+
+        <div class="loop-item">
+          <div class="loop-item__marker">3</div>
+          <div class="loop-item__text">
+            <strong>Learn</strong>
+            <span>Get guidance built on real experience, not guesswork</span>
+          </div>
+        </div>
+        <div class="loop-item__line"></div>
+
+        <div class="loop-item loop-item--last">
+          <div class="loop-item__marker">4</div>
+          <div class="loop-item__text">
+            <strong>Pass it on</strong>
+            <span>Become the senior someone else needed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGHT: auth card -->
+  <section class="auth-card-wrap">
+    <div class="card">
+
+      <div class="switcher" id="switcher">
+        <button type="button" class="switcher__btn is-active" id="tabLogin">Log In</button>
+        <button type="button" class="switcher__btn" id="tabSignup">Sign Up</button>
+        <span class="switcher__pill" id="switcherPill"></span>
+      </div>
+
+      <h2 class="card__title" id="formTitle">Welcome back</h2>
+      <p class="card__subtitle" id="formSubtitle">Log in with your college email to continue.</p>
+
+      <form id="authForm" novalidate>
+
+        <div class="field field--collapsible" data-signup-only id="fullNameField">
+          <div class="field__inner">
+            <label for="fullName">Full name</label>
+            <input type="text" id="fullName" placeholder="Your full name" autocomplete="name" />
+            <span class="field__error">Please enter your full name.</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="collegeEmail">College email</label>
+          <input type="email" id="collegeEmail" placeholder="yourname101btcse24@igdtuw.ac.in" autocomplete="email" />
+          <span class="field__error">Please enter a valid IGDTUW college email.</span>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="field__password">
+            <input type="password" id="password" placeholder="Min 8 characters" autocomplete="current-password" />
+            <button type="button" class="field__toggle" id="togglePassword" aria-label="Show password">
+              <svg class="icon-eye" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+            </button>
+          </div>
+          <span class="field__hint">Use 8+ characters with a mix of uppercase, lowercase, a number &amp; a symbol.</span>
+          <span class="field__error">Password isn't strong enough — see the requirement above.</span>
+        </div>
+
+        <button type="submit" class="btn" id="submitBtn">
+          <span id="submitBtnText">Log In</span>
+        </button>
+
+        <div class="status" id="formStatus"></div>
+      </form>
+
+      <p class="switch-line">
+        <span id="switchPrompt">New to OnceU?</span>
+        <button type="button" class="switch-link" id="switchLink">Create an account</button>
+      </p>
+
+    </div>
+  </section>
+
+</main>
+
+<script src="js/common.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

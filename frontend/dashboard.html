@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard — OnceU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="app-body">
+
+<!-- ============ TOPBAR ============ -->
+<header class="topbar">
+  <div class="topbar__brand">
+    <img src="assets/logo.png" alt="OnceU logo" class="topbar__logo" />
+    <span class="topbar__name">OnceU</span>
+  </div>
+
+  <div class="topbar__search">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/>
+      <path d="m21 21-3.6-3.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+    <input type="text" placeholder="Search mentors, topics, or resources..." disabled />
+  </div>
+
+  <div class="topbar__actions">
+    <div class="icon-dropdown-wrap">
+      <button type="button" class="icon-btn" id="notifTrigger" aria-label="Notifications">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13.7 21a2 2 0 0 1-3.4 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="icon-dropdown" id="notifDropdown" hidden>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p>No notifications yet &mdash; mentor updates will show up here.</p>
+      </div>
+    </div>
+
+    <div class="icon-dropdown-wrap">
+      <button type="button" class="icon-btn" id="msgTrigger" aria-label="Messages">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 5.5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 3.5v-3.5H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="icon-dropdown" id="msgDropdown" hidden>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 5.5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 3.5v-3.5H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <p>No messages yet &mdash; chat opens once a mentor accepts your request.</p>
+      </div>
+    </div>
+
+    <div class="user-menu" id="userMenu">
+      <button type="button" class="user-menu__trigger" id="userMenuTrigger">
+        <span class="avatar-circle" id="userAvatar">?</span>
+        <span class="user-menu__info">
+          <strong id="userGreetingName">Student</strong>
+          <span id="userGreetingMeta">&mdash;</span>
+        </span>
+        <svg class="user-menu__chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="user-menu__dropdown" id="userMenuDropdown" hidden>
+        <a href="settings.html" class="user-menu__item">Settings</a>
+        <button type="button" class="user-menu__item user-menu__item--danger" id="logoutBtn">Log out</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <nav class="sidebar__nav">
+      <a href="dashboard.html" class="sidebar__link is-active">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v9.5a1 1 0 0 0 1 1h3.5v-6h3v6H17a1 1 0 0 0 1-1V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Home
+      </a>
+      <a href="find-mentors.html" class="sidebar__link">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="m21 21-3.6-3.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        Find Mentors
+      </a>
+      <a href="sessions.html" class="sidebar__link">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 9.5h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        My Sessions
+      </a>
+      <a href="#" class="sidebar__link" data-soon>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v18H6.5A2.5 2.5 0 0 1 4 18.5v-13Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v18h5.5a2.5 2.5 0 0 0 2.5-2.5v-13Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        Resources
+      </a>
+      <a href="#" class="sidebar__link" data-soon>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="8.5" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="16.5" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.8"/><path d="M3 19.5c.6-3 2.6-4.8 5.5-4.8s4.9 1.8 5.5 4.8M14.7 15.3c2 .3 3.4 1.7 3.8 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        Community
+      </a>
+      <a href="profile.html" class="sidebar__link">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.8"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3.8a7 7 0 0 0-2.1-1.2L14 3h-4l-.5 2.5a7 7 0 0 0-2.1 1.2l-2.3-.8-2 3.4 2 1.5A7 7 0 0 0 5 12a7 7 0 0 0 .1 1.2l-2 1.5 2 3.4 2.3-.8a7 7 0 0 0 2.1 1.2L10 21h4l.5-2.5a7 7 0 0 0 2.1-1.2l2.3.8 2-3.4-2-1.5c.06-.4.1-.8.1-1.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        My Profile
+      </a>
+    </nav>
+
+    <div class="sidebar__cta">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 3 3 7.5 12 12l9-4.5L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M6 10.2V16c0 1 2.7 3 6 3s6-2 6-3v-5.8" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      <p>Build Knowledge.<br>Grow Together. <span aria-hidden="true">&#10084;</span></p>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="dash-main">
+
+    <section class="banner">
+      <div class="banner__text">
+        <h1 id="welcomeHeading">Welcome to OnceU!</h1>
+        <p>Connect with seniors from IGDTUW, learn from their experiences and take the next step with confidence.</p>
+      </div>
+      <div class="banner__badge">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 21V10.5L12 5l8 5.5V21" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 21v-6h6v6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        <span>IGDTUW<br>Focused <span aria-hidden="true">&#10084;</span></span>
+      </div>
+    </section>
+
+    <section class="mentors-section">
+      <div class="mentors-section__head">
+        <div>
+          <h2 id="mentorsHeading">Recommended Mentors</h2>
+          <p id="mentorsSubhead">Connect with experienced seniors from your college</p>
+        </div>
+        <a href="find-mentors.html" class="view-all">View All <span aria-hidden="true">&rarr;</span></a>
+      </div>
+
+      <div class="mentor-grid" id="mentorGrid"></div>
+      <p class="empty-state" id="emptyState" hidden></p>
+    </section>
+
+    <section class="resources-strip">
+      <div class="resources-strip__label">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v18H6.5A2.5 2.5 0 0 1 4 18.5v-13Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v18h5.5a2.5 2.5 0 0 0 2.5-2.5v-13Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        <div>
+          <strong>Explore Resources</strong>
+          <span>Curated for IGDTUW students</span>
+        </div>
+      </div>
+      <a href="#" class="resource-chip" data-soon><span class="resource-chip__icon">&#128214;</span> Course Notes &amp; Study Tips</a>
+      <a href="#" class="resource-chip" data-soon><span class="resource-chip__icon">&#128161;</span> Project Ideas &amp; Resources</a>
+      <a href="#" class="resource-chip" data-soon><span class="resource-chip__icon">&#128188;</span> Internships &amp; Opportunities</a>
+      <a href="#" class="resource-chip" data-soon><span class="resource-chip__icon">&#128640;</span> Career Guidance</a>
+    </section>
+
+  </main>
+
+  <!-- ============ RIGHT RAIL ============ -->
+  <aside class="right-rail">
+
+    <div class="stat-card stat-card--coins">
+      <span class="stat-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="12" cy="12" r="9.5" fill="url(#coinGradient)" stroke="#C97A1E" stroke-width="1.2"/>
+          <circle cx="12" cy="12" r="6.7" fill="none" stroke="#C97A1E" stroke-width="1" stroke-opacity="0.55"/>
+          <path d="M12 7.6v8.8M9.9 9.4c0-1 .9-1.6 2.1-1.6 1.3 0 2.1.6 2.1 1.5 0 2.2-4.2 1.2-4.2 3.4 0 .9.9 1.5 2.1 1.5s2.1-.6 2.1-1.6" stroke="#8A4B0E" stroke-width="1.1" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="coinGradient" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFD27A"/><stop offset="1" stop-color="#F0A93B"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <div>
+        <span class="stat-card__label">Your Coins</span>
+        <strong class="stat-card__value" id="userCoins">500</strong>
+        <span class="stat-card__note">Starting Balance</span>
+      </div>
+    </div>
+
+    <div class="stat-card stat-card--profile">
+      <span class="stat-card__icon stat-card__icon--peach">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="8.5" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="16.5" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.8"/><path d="M3 19.5c.6-3 2.6-4.8 5.5-4.8s4.9 1.8 5.5 4.8M14.7 15.3c2 .3 3.4 1.7 3.8 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </span>
+      <div class="stat-card__grow">
+        <span class="stat-card__label">Your Profile Strength</span>
+        <div class="progress-bar"><span id="profileStrengthBar" style="width:25%"></span></div>
+        <a href="settings.html" class="stat-card__link" id="profileStrengthLink">Complete your profile <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+
+    <div class="rail-card">
+      <div class="rail-card__head">
+        <span class="rail-card__title">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 9.5h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          Upcoming Sessions
+        </span>
+        <a href="#" class="rail-card__viewall" data-soon>View All</a>
+      </div>
+      <div class="rail-card__empty">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9.5h17" stroke="currentColor" stroke-width="1.6"/></svg>
+        <p>You don't have any upcoming sessions yet.</p>
+        <a href="find-mentors.html" class="rail-card__cta">Find a Mentor <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+
+    <div class="rail-card">
+      <div class="rail-card__head"><span class="rail-card__title">Quick Links</span></div>
+      <a href="find-mentors.html" class="quick-link">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="8.5" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="16.5" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.8"/><path d="M3 19.5c.6-3 2.6-4.8 5.5-4.8s4.9 1.8 5.5 4.8M14.7 15.3c2 .3 3.4 1.7 3.8 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span id="quickLinkBrowse">Browse Mentors</span> <span class="quick-link__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a href="#" class="quick-link" data-soon>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v18H6.5A2.5 2.5 0 0 1 4 18.5v-13Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v18h5.5a2.5 2.5 0 0 0 2.5-2.5v-13Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        College Resources <span class="quick-link__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a href="#" class="quick-link" data-soon>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M3 19c.6-3.3 2.8-5.2 6-5.2s5.4 1.9 6 5.2M16 8.5a3 3 0 1 0 0-6M19.5 19c-.3-2-1.2-3.5-2.8-4.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        IGDTUW Community <span class="quick-link__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a href="help.html" class="quick-link">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9.5 9.3a2.5 2.5 0 1 1 3.4 2.3c-.8.4-1.4 1-1.4 1.9v.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17" r="0.9" fill="currentColor"/></svg>
+        Help &amp; Support <span class="quick-link__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+
+  </aside>
+
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/mentors-data.js"></script>
+<script src="js/sessions-data.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
